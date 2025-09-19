@@ -7,8 +7,8 @@ public class NegativeCalculatorTest {
     @DataProvider
     public Object[][] negativeData (){
         return new Object[][] {
-                {"+", "2147483647", "1"},
-                {"-", "-2147483648", "1"},
+                {"+", String.valueOf(Integer.MAX_VALUE), "1"},
+                {"-", String.valueOf(Integer.MIN_VALUE), "1"},
                 {"%", "4", "5"},
                 {"/", "10", "0"},
                 {"+", "9999999999", "1"}

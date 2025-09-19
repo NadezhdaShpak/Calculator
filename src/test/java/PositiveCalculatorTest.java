@@ -20,8 +20,8 @@ public class PositiveCalculatorTest {
                 {"-", "-5", "-3", -2.0},
                 {"*", "-4", "5", -20.0},
                 {"/", "-10", "2", -5.0},
-                {"+", "2147483646", "1", 2147483647},
-                {"-", "-2147483647", "1", -2147483648},
+                {"+", String.valueOf(Integer.MAX_VALUE - 1), "1", Integer.MAX_VALUE},
+                {"-", String.valueOf(Integer.MIN_VALUE + 1), "1", Integer.MIN_VALUE},
         };
     }
 
