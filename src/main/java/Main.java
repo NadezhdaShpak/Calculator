@@ -10,6 +10,11 @@ public class Main {
 
     private static String[] readParams() {
         // todo: считать из консоли данные, затем вернуть их в виде массива строк
-        return null;
+        Scanner sc = new Scanner(System.in);
+        String[] params = new String[3];
+        params[0] = sc.nextLine();
+        params[1] = sc.nextLine();
+        params[2] = sc.nextLine();
+        return params;
     }
 }
