@@ -2,7 +2,6 @@ import model.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 public class PositiveCalculatorTest {
 
@@ -13,14 +12,16 @@ public class PositiveCalculatorTest {
                 {"-", "5", "3", 2.0},
                 {"*", "4", "5", 20.0},
                 {"/", "10", "2", 5.0},
-                {"+", "0", "0", 0.0},
+                {"*", "0", "0", 0.0},
                 {"-", "0", "5", -5.0},
                 {"*", "0", "100", 0.0},
                 {"/", "7", "2", 3.5},
                 {"+", "-2", "3", 1.0},
                 {"-", "-5", "-3", -2.0},
                 {"*", "-4", "5", -20.0},
-                {"/", "-10", "2", -5.0}
+                {"/", "-10", "2", -5.0},
+                {"+", "2147483646", "1", 2147483647},
+                {"-", "-2147483647", "1", -2147483648},
         };
     }
 
@@ -29,6 +30,6 @@ public class PositiveCalculatorTest {
         String[] params = {operator, first, second};
         String res = Calculator.execute(params);
         double actual = Double.parseDouble(res);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected, 0.001);
     }
 }

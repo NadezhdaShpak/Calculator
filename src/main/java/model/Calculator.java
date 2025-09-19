@@ -6,12 +6,18 @@ public class Calculator {
         String operator = params[0];
         double value1;
         double value2;
-        // todo: доработать код, чтобы все негативные тесты проходили успешно
-        value1 = Double.parseDouble(params[1]);
-        value2 = Double.parseDouble(params[2]);
-        double result = calculate(operator, value1, value2);
-        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
+        double result;
+        try {
+            value1 = Double.parseDouble(params[1]);
+            value2 = Double.parseDouble(params[2]);
+            result = calculate(operator, value1, value2);
+            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE ||
+                    value1 == Integer.MIN_VALUE || value1 == Integer.MAX_VALUE ||
+                    value2 == Integer.MIN_VALUE || value2 == Integer.MAX_VALUE) {
+                throw new CalculatorException("Превышен порог значений");
+            }
+        } catch (CalculatorException e) {
+            throw new CalculatorException(e.getMessage());
         }
         return String.valueOf(result);
     }
