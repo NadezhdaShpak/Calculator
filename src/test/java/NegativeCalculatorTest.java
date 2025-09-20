@@ -9,7 +9,9 @@ public class NegativeCalculatorTest {
         return new Object[][] {
                 {"+", String.valueOf(Integer.MAX_VALUE), "1"},
                 {"-", String.valueOf(Integer.MIN_VALUE), "1"},
-                {"%", "4", "5"},
+                {"+", String.valueOf((double) Integer.MAX_VALUE + 1), "1"},
+                {"-", String.valueOf((double) Integer.MIN_VALUE - 1), "1"},
+                {"%", "ы", "s"},
                 {"/", "10", "0"},
                 {"+", "9999999999", "1"},
                 {null, null, null},
