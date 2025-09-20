@@ -10,12 +10,13 @@ public class Calculator {
         try {
             value1 = Double.parseDouble(params[1]);
             value2 = Double.parseDouble(params[2]);
-            result = calculate(operator, value1, value2);
-            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE ||
-                    value1 < Integer.MIN_VALUE || value1 > Integer.MAX_VALUE ||
+            if (value1 < Integer.MIN_VALUE || value1 > Integer.MAX_VALUE ||
                     value2 < Integer.MIN_VALUE || value2 > Integer.MAX_VALUE) {
                 throw new CalculatorException("Превышен порог значений");
             }
+            result = calculate(operator, value1, value2);
+            if (result < Integer.MIN_VALUE || result > Integer.MAX_VALUE)
+                throw new CalculatorException("Превышен порог значения результата");
         } catch (NumberFormatException | NullPointerException e) {
             throw new CalculatorException("Некорректный формат числа");
         } catch (CalculatorException e) {

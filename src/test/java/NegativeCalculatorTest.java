@@ -11,7 +11,9 @@ public class NegativeCalculatorTest {
                 {"-", String.valueOf(Integer.MIN_VALUE), "1"},
                 {"%", "4", "5"},
                 {"/", "10", "0"},
-                {"+", "9999999999", "1"}
+                {"+", "9999999999", "1"},
+                {null, null, null},
+                {"", "", ""}
         };
     }
 
